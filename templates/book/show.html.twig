@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+    {% block title %}{{ book.title }}{% endblock %}
 {% block body %}
     <h1>{{ book.title }}</h1>
     <p>Auteur : {{ book.author.fullName }}</p>
@@ -8,8 +8,13 @@
     <ul>
 
         {% for category in book.category  %}
+            <li>
+                <a href="{{ path('category_show', {'id': category.id}) }}">
+                    {{ category.name }}
+                </a>
 
-        <li>{{ category.name }}</li>
+            </li>
+      {#  <li>{{ category.name }}</li> #}
         {% endfor %}
     </ul>
     <p>Créé le {{ book.createdAt|date('d M Y') }}</p>

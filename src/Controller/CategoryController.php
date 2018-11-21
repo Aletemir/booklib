@@ -2,18 +2,24 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Category;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CategoryController extends AbstractController
+/**
+ * *Class DefaultController
+ *@package App\controller
+ *@Route ("/category")
+ */
+
+class CategoryController extends BaseController
 {
     /**
-     * @Route("/category", name="category")
+     * @Route("/show/{id}", name="category_show")
      */
-    public function index()
+    public function show(Category $category)
     {
-        return $this->render('category/index.html.twig', [
-            'controller_name' => 'CategoryController',
+        return $this->render('category/show.html.twig', [
+            'category' => $category,
         ]);
     }
 }
