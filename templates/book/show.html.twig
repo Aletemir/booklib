@@ -2,6 +2,7 @@
     {% block title %}{{ book.title }}{% endblock %}
 {% block body %}
     <h1>{{ book.title }}</h1>
+    <img src="{{ asset('uploads/' ~ book.image) }}" alt="{{ book.title }}">
     <p>Auteur : {{ book.author.fullName }}</p>
 
     <p>Catégorie : </p>
@@ -14,10 +15,21 @@
                 </a>
 
             </li>
-      {#  <li>{{ category.name }}</li> #}
         {% endfor %}
     </ul>
     <p>Créé le {{ book.createdAt|date('d M Y') }}</p>
 
+
+
+    <h2>Livres du même auteur : </h2>
+    {% for otherbook in otherbooks %}
+        <li>
+            <a href="{{ path('book_show', {'slug': ohtherbook.slug}) }}">
+                {{ otherbook.title }}
+            </a>
+        </li>
+    {% else %}
+        <li>Aucun autre livre</li>
+    {% endfor %}
 
 {% endblock %}

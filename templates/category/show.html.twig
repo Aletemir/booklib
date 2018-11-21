@@ -4,6 +4,7 @@
 
 {% block body %}
 <h1>{{ category.name }}</h1>
+    <h2>Livres de la même catégorie</h2>
 
 <ul>
     {% for book in category.book  %}
@@ -11,10 +12,7 @@
             <a href="{{ path('book_show', {'slug': book.slug}) }}">
                 {{ book.title }}
             </a>
-
         </li>
-       {# <li>{{ book.title }}</li> #}
     {% endfor %}
 </ul>
-
 {% endblock %}
