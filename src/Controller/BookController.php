@@ -17,8 +17,8 @@ class BookController extends BaseController
      */
     public function show(Book $book)
     {
-        return $this->render('book/index.html.twig', [
-            'controller_name' => 'BookController',
+        return $this->render('book/show.html.twig', [
+            'book' => $book
         ]);
     }
 }

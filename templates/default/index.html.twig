@@ -1,22 +1,27 @@
 {% extends "base.html.twig" %}
 
-{% block header%}
+{% block header %}
     {{ parent() }}
-<header>
-    C'est très beau les coxigrue
-</header>
+    <header>
+        C'est très beau les coxigrue
+    </header>
 {% endblock %}
 
 {% block body %}
-<h1>
-    {{ author.fullName }}
-</h1>
+    <h1>
+        {{ author.fullName }}
+    </h1>
 
     <h2>Liste des livres : </h2>
 
     <ul>
         {% for book in author.books %}
-        <li>{{ book.title }}</li>
+            <li>
+                <a href="{{ path('book_show', {'slug': book.slug}) }}">
+                    {{ book.title }}
+                 </a>
+
+            </li>
         {% endfor %}
 
     </ul>
