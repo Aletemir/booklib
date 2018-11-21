@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Book;
+use Symfony\Component\Routing\Annotation\Route;
+
+/**
+ * Class BookComposer
+ * @package App\Controller
+ * @Route("/book")
+ */
+class BookController extends BaseController
+{
+    /**
+     * @Route("/show/{slug}", name="book_show")
+     */
+    public function show(Book $book)
+    {
+        return $this->render('book/index.html.twig', [
+            'controller_name' => 'BookController',
+        ]);
+    }
+}

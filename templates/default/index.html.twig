@@ -1,8 +1,26 @@
 {% extends "base.html.twig" %}
 
+{% block header%}
+    {{ parent() }}
+<header>
+    C'est très beau les coxigrue
+</header>
+{% endblock %}
+
 {% block body %}
-<div class="">
-    Je vais partir dans le Larzac élever des chèvres.
-</div>
+<h1>
+    {{ author.fullName }}
+</h1>
+
+    <h2>Liste des livres : </h2>
+
+    <ul>
+        {% for book in author.books %}
+        <li>{{ book.title }}</li>
+        {% endfor %}
+
+    </ul>
+
 
 {% endblock %}
+
