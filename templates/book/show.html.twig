@@ -2,5 +2,17 @@
 
 {% block body %}
     <h1>{{ book.title }}</h1>
+    <p>Auteur : {{ book.author.fullName }}</p>
+
+    <p>Catégorie : </p>
+    <ul>
+
+        {% for category in book.category  %}
+
+        <li>{{ category.name }}</li>
+        {% endfor %}
+    </ul>
+    <p>Créé le {{ book.createdAt|date('d M Y') }}</p>
+
 
 {% endblock %}
